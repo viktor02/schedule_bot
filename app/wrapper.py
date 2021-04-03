@@ -15,6 +15,6 @@ def get_lessons_text(year, month, day):
     for weekday, number, lesson, teacher, odd in lessons:
         time_s = time[number - 1][1]
         time_e = time[number - 1][2]
-        text += f"{time_s} {time_e} | {lesson} {teacher}\n"
+        text += f"{time_s} {time_e} | {lesson}\n"
 
     return text

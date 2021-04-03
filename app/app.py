@@ -7,7 +7,7 @@ app = Client(session_name="rschedule", config_file="../config.ini")
 
 @app.on_message(filters.text & filters.private)
 def send_lessons(client, message):
-    today = date(2021, 3, 4)
+    today = date.today()
 
     holiday = today.isoweekday() > 5
     if holiday:
