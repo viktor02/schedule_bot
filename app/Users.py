@@ -24,4 +24,5 @@ class Users(Loader):
     def get_admins(self) -> list:
         self.cur.execute("SELECT id from users where status = 'admin'")
         admins = self.cur.fetchall()
+        admins = [item for t in admins for item in t]  # unpack into list
         return admins

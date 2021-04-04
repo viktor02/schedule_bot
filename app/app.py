@@ -26,14 +26,14 @@ def send_announce(_, message):
     u = Users()
     users = u.get_users()
     admins = u.get_admins()
-    if message.chat.id not in admins:
+    if message.chat.id in admins:
+        for id, username, _ in users:
+            app.send_message(id, message.command[1])
+    else:
         try:
             app.send_message(message.chat.id, "У вас нет прав")
         except PeerIdInvalid:
             pass
-    else:
-        for id, username, _ in users:
-            app.send_message(id, message.command[1])
 
 
 @app.on_message(filters.command("help"))
