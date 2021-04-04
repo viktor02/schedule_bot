@@ -76,7 +76,8 @@ def send_lessons(client, message):
 
 
 def send_every_day():
-    lessons = wrapper.next_day_wrapper()
+    today = date.today()
+    lessons = wrapper.date_wrapper(today.day)
 
     u = Users()
     users = u.get_users()
