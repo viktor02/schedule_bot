@@ -21,8 +21,13 @@ class Loader:
                             "time_end"	TEXT,
                             "is_short_day"	INTEGER)''')
         self.cur.execute('''CREATE TABLE IF NOT EXISTS "notes" (
-                            "year"  INTEGER
+                            "year"  INTEGER,
                             "month"	INTEGER,
                             "day"	INTEGER,
                             "note"	TEXT)
+                            ''')
+        self.cur.execute('''CREATE TABLE IF NOT EXISTS "users" (
+                            "username"  TEXT,
+                            "id"	INTEGER,
+                            "status" TEXT)
                             ''')
